@@ -11,7 +11,15 @@ app.use('/dist', express.static('dist'));
 
 app.get('/generate-pdf', async (req, res) => {
   const browser = await puppeteer.launch({
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
+    headless: 'new', // or true if you're using older Puppeteer
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-gpu',
+      '--no-zygote',
+      '--single-process',
+    ],
   });
   const page = await browser.newPage();
 
@@ -87,7 +95,7 @@ app.get('/generate-pdf', async (req, res) => {
 
   res.set({
     'Content-Type': 'application/pdf',
-    'Content-Disposition': 'attachment; filename="flyer.pdf"',
+    'Content-Disposition': 'attachment; filename="flier.pdf"',
     'Content-Length': pdfBuffer.length
   });
 
