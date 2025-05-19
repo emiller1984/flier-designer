@@ -31,5 +31,9 @@ COPY . .
 # Install dependencies
 RUN npm install
 
+# Install Chromium for puppeteer-core
+RUN npx puppeteer browsers install chrome
+
 # Run app
 CMD ["npm", "start"]
+
