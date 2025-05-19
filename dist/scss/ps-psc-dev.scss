@@ -1,0 +1,49 @@
+// PS PSC Dev includes:
+// - PS Brand Fonts
+// - PerkSpot Themed Bootstrap
+// - FontAwesome Icons
+// - PerkSpot Legacy Custom Styling
+// - Perxicons
+// - Animate.css
+// - Community Colors (for development)
+
+
+// Fonts for Development
+@import "fonts";
+
+// Custom bootstrap variable overrides
+@import "bootstrap_variable_overrides";
+
+// Bootstrap and its default variables
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// FontAwesome
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/regular.scss";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
+
+// Your style
+// CSS dependencies for jqueryui and ladda, inherited from PS-Legacy
+@import "psc/jqueryui";
+@import "psc/ladda";
+
+// CSS Custom styles inherited from PS-Legacy
+@import "psc/mixins";
+@import "psc/core";
+@import "psc/layout";
+@import "psc/nav";
+@import "psc/buttons";
+@import "psc/modals";
+@import "psc/checkout";
+@import "psc/search";
+@import "psc/components";
+
+// CSS Custom styles for PS-Bootstrap
+@import "general";
+@import "perxicons";
+@import "buttons";
+@import "animate";
+
+// Community Colors (for development)
+@import "dev/communitylegacy";
+@import "dev/communitystyles";

@@ -1,0 +1,11 @@
+// This file is created just to output a Community White Labeling CSS file. It uses placeholder HEX codes, which can be replaced
+// with variables taken from PSA to add community white labeling to a PS-Bootstrap project.
+
+
+$colorprimarycta: #1b8965;
+$colorprimarybg: #3780b4;
+$colortextinversefg: #E4FCFF;
+$colorprimarynavbuttonbginactive: #57AAD8;
+
+// Community Colors
+@import "dev/communitystyles";

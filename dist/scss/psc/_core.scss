@@ -1,0 +1,171 @@
+// _general
+
+@import "mixins";
+
+/* Out Of Date Browser Notification */
+.browser-notification {
+    display: none;
+}
+
+.browser-out-of-date .browser-notification {
+    display: block;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+
+/* Admin Bar */
+
+.admin-tools {
+    display: flex;
+    background-color: #eaeaea;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 10px;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-end;
+
+    > span {
+        font-style: italic;
+        padding-right: 5px;
+    }
+
+    &::before {
+        display: block;
+        position: absolute;
+        top: 8px;
+        left: 10px;
+        font-size: 12px;
+        line-height: 14px;
+        content: 'XSmall: Phones';
+        color: #ccc;
+        max-width: 60px;
+        text-transform: uppercase;
+
+        @include small {
+            content: 'Small: Tablets';
+        }
+
+        @include medium {
+            content: 'Medium: Tablets';
+        }
+
+        @include large {
+            content: 'Large: Desktop';
+        }
+
+        @include extralarge {
+            content: 'ExtraLarge: Desktop';
+        }
+
+        @include xxsmall {
+            content: 'XXSmall: Phones'
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+
+        li {
+            a {
+                border: 1px solid #ccc;
+                padding: 5px 8px;
+                background-color: #fff;
+                text-align: center;
+                border-radius: 4px;
+                margin: 0 3px;
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                height: 33px;
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+
+                &:hover, &:active, &:focus {
+                    text-decoration: none;
+                    background-color: #fbfbfb;
+
+                    span {
+                        text-decoration: underline;
+                    }
+                }
+
+                span {
+                    font-size: 10px;
+                    line-height: 14px;
+
+                    @include small {
+                        font-size: 12px;
+                        line-height: 16px;
+                    }
+                }
+
+                i.fa {
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+
+    .close-admin {
+        padding: 4px 6px;
+        font-size: 24px;
+        line-height: 15px;
+        height: 24px;
+        color: #777;
+        background-color: rgba(0,0,0,0.1);
+        margin-left: 5px;
+        border-radius: 50%;
+        width: 24px;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.admin-change, .admin-email-links {
+    margin: 15px 0;
+    display: inline-block;
+    width: 100%;
+    border-radius: 4px;
+
+    select {
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
+
+/* Hide labels off screen without removing them for accessiblity */
+
+.hide-label {
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+
+
+.parsley-errors-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .parsley-required, .parsley-pattern {
+        margin: 5px 0 5px 0;
+        color: $danger;
+        font-style: italic;
+        font-size: 14px;
+        line-height: 18px;
+    }
+}

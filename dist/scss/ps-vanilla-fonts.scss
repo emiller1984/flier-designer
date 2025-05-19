@@ -1,0 +1,30 @@
+// PS Vanilla includes:
+// - PS Brand Fonts
+// - FontAwesome Icons 
+// - PerkSpot Themed Bootstrap
+// - Perxicons
+// - PerkSpot Misc Styling
+// - Animate.css
+// Note: This CSS output file does not include Community Color White Labeling. 
+// White labeling must be applied via CSS overwrites.
+
+// Fonts
+@import "fonts";
+
+// FontAwesome
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/regular.scss";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
+
+// Custom bootstrap variable overrides
+@import "bootstrap_variable_overrides";
+
+// Bootstrap and its default variables
+@import "bootstrap/scss/bootstrap.scss";
+
+    
+// CSS Custom styles for PS-Bootstrap
+@import "general";
+@import "perxicons";
+@import "buttons";
+@import "animate";

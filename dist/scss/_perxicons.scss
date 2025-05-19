@@ -1,0 +1,561 @@
+// _perxicons
+
+
+/* Perxicons */
+
+.perxicon, .perxicon-sm {
+    font-family: 'perxicons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-weight: normal !important;
+}
+
+.perxicon-sm {
+    font-size: 16px;
+    line-height: 1;
+}
+
+.perxicon-md {
+    font-size: 32px;
+    line-height: 1;
+}
+
+.perx-category,
+.perx-intro {
+    width: 40px;
+    height: 40px;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 40px;
+    text-align: center;
+    font-weight: normal;
+}
+
+.perx-intro {
+    width: 160px;
+    height: 160px;
+    font-size: 80px;
+    border: 2px solid #5a5a5a;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: block;
+    padding: 35px 44px;
+}
+
+.ie8 .perx-intro {
+    border: none !important;
+    padding: 0;
+    text-align: center;
+    height: 115px;
+}
+
+.perx-activitywall:before {
+    content: "\e900";
+}
+
+.perx-all-categories-sm:before {
+    content: "\e901";
+}
+
+.perx-auto:before {
+    content: "\e902";
+}
+
+.perx-beauty:before {
+    content: "\e903";
+}
+
+.perx-bell:before {
+    content: "\e904";
+}
+
+.perx-bell-sm:before {
+    content: "\e905";
+}
+
+.perx-binder:before {
+    content: "\e906";
+}
+
+.perx-book:before {
+    content: "\e907";
+}
+
+.perx-bowl:before {
+    content: "\e908";
+}
+
+.perx-briefcase:before {
+    content: "\e909";
+}
+
+.perx-cake:before {
+    content: "\e90a";
+}
+
+.perx-calculator:before {
+    content: "\e90b";
+}
+
+.perx-calendar:before {
+    content: "\e90c";
+}
+
+.perx-calendar-sm:before {
+    content: "\e90d";
+}
+
+.perx-carkeys:before {
+    content: "\e90e";
+}
+
+.perx-cart-1-sm:before {
+    content: "\e90f";
+}
+
+.perx-cart-2-sm:before {
+    content: "\e910";
+}
+
+.perx-certificate-md:before {
+    content: "\e911";
+}
+
+.perx-certificate-sm:before {
+    content: "\e912";
+}
+
+.perx-checkboxman:before {
+    content: "\e913";
+}
+
+.perx-chicagostar:before {
+    content: "\e914";
+}
+
+.perx-coffee:before {
+    content: "\e915";
+}
+
+.perx-computer-alert:before {
+    content: "\e916";
+}
+
+.perx-computer-dead:before {
+    content: "\e917";
+}
+
+.perx-computer-happy:before {
+    content: "\e918";
+}
+
+.perx-computer-okay:before {
+    content: "\e919";
+}
+
+.perx-cruiseship:before {
+    content: "\e91a";
+}
+
+.perx-devices:before {
+    content: "\e91b";
+}
+
+.perx-dinner:before {
+    content: "\e91c";
+}
+
+.perx-dogfood:before {
+    content: "\e91d";
+}
+
+.perx-dollar-sign-sm:before {
+    content: "\e91e";
+}
+
+.perx-dumbell:before {
+    content: "\e91f";
+}
+
+.perx-envelope:before {
+    content: "\e920";
+}
+
+.perx-envelope-sm:before {
+    content: "\e921";
+}
+
+.perx-ferriswheel:before {
+    content: "\e922";
+}
+
+.perx-filter-sm:before {
+    content: "\e923";
+}
+
+.perx-fishbowl:before {
+    content: "\e924";
+}
+
+.perx-flag-md:before {
+    content: "\e925";
+}
+
+.perx-flag-sm:before {
+    content: "\e926";
+}
+
+.perx-flowerpot:before {
+    content: "\e927";
+}
+
+.perx-game:before {
+    content: "\e928";
+}
+
+.perx-gandala:before {
+    content: "\e929";
+}
+
+.perx-garden:before {
+    content: "\e92a";
+}
+
+.perx-gift:before {
+    content: "\e92b";
+}
+
+.perx-gift-card-1:before {
+    content: "\e92c";
+}
+
+.perx-gift-card-2:before {
+    content: "\e92d";
+}
+
+.perx-gift-card-sm:before {
+    content: "\e92e";
+}
+
+.perx-glove:before {
+    content: "\e92f";
+}
+
+.perx-graph-md:before {
+    content: "\e930";
+}
+
+.perx-graph-sm:before {
+    content: "\e931";
+}
+
+.perx-groceries:before {
+    content: "\e932";
+}
+
+.perx-guitar:before {
+    content: "\e933";
+}
+
+.perx-heart-add-sm:before {
+    content: "\e934";
+}
+
+.perx-heart-edit-sm:before {
+    content: "\e935";
+}
+
+.perx-heart-md:before {
+    content: "\e936";
+}
+
+.perx-heart-sm:before {
+    content: "\e937";
+}
+
+.perx-hikingboot:before {
+    content: "\e938";
+}
+
+.perx-home-sm:before {
+    content: "\e939";
+}
+
+.perx-hotdog:before {
+    content: "\e93a";
+}
+
+.perx-hotel:before {
+    content: "\e93b";
+}
+
+.perx-house:before {
+    content: "\e93c";
+}
+
+.perx-insurance:before {
+    content: "\e93d";
+}
+
+.perx-laptop:before {
+    content: "\e93e";
+}
+
+.perx-leaderboard:before {
+    content: "\e93f";
+}
+
+.perx-lightbulb:before {
+    content: "\e940";
+}
+
+.perx-lion:before {
+    content: "\e941";
+}
+
+.perx-login:before {
+    content: "\e942";
+}
+
+.perx-map:before {
+    content: "\e943";
+}
+
+.perx-map-sm:before {
+    content: "\e944";
+}
+
+.perx-menu-sm:before {
+    content: "\e945";
+}
+
+.perx-motarboard:before {
+    content: "\e946";
+}
+
+.perx-myfeed-2-sm:before {
+    content: "\e947";
+}
+
+.perx-myfeed-sm:before {
+    content: "\e948";
+}
+
+.perx-my-spot-sm:before {
+    content: "\e949";
+}
+
+.perx-okay:before {
+    content: "\e94a";
+}
+
+.perx-orderhistory:before {
+    content: "\e94b";
+}
+
+.perx-paintbrush:before {
+    content: "\e94c";
+}
+
+.perx-party:before {
+    content: "\e94d";
+}
+
+.perx-pc:before {
+    content: "\e94e";
+}
+
+.perx-penpaper:before {
+    content: "\e94f";
+}
+
+.perx-people:before {
+    content: "\e950";
+}
+
+.perx-pepper:before {
+    content: "\e951";
+}
+
+.perx-phone:before {
+    content: "\e952";
+}
+
+.perx-piggybank:before {
+    content: "\e953";
+}
+
+.perx-plane:before,
+.perx-travel:before {
+    content: "\e954";
+}
+
+.perx-popcorn:before,
+.perx-movie-tickets:before {
+    content: "\e955";
+}
+
+.perx-profile:before {
+    content: "\e956";
+}
+
+.perx-purse:before {
+    content: "\e957";
+}
+
+.perx-realestate:before {
+    content: "\e958";
+}
+
+.perx-reminder:before {
+    content: "\e959";
+}
+
+.perx-ring:before {
+    content: "\e95a";
+}
+
+.perx-rocketship:before {
+    content: "\e95b";
+}
+
+.perx-rosechocolates:before {
+    content: "\e95c";
+}
+
+.perx-runner:before {
+    content: "\e95d";
+}
+
+.perx-search:before {
+    content: "\e95e";
+}
+
+.perx-search-md:before {
+    content: "\e95f";
+}
+
+.perx-search-sm:before {
+    content: "\e960";
+}
+
+.perx-shirt:before {
+    content: "\e961";
+}
+
+.perx-shoe:before {
+    content: "\e962";
+}
+
+.perx-shoppingbag:before {
+    content: "\e963";
+}
+
+.perx-shoppingbasket:before {
+    content: "\e964";
+}
+
+.perx-silverware:before {
+    content: "\e965";
+}
+
+.perx-smallbusiness:before {
+    content: "\e966";
+}
+
+.perx-smile:before {
+    content: "\e967";
+}
+
+.perx-smile-2:before {
+    content: "\e968";
+}
+
+.perx-snowflake:before {
+    content: "\e969";
+}
+
+.perx-snowflake-sm:before {
+    content: "\e96a";
+}
+
+.perx-sort-sm:before {
+    content: "\e96b";
+}
+
+.perx-star:before {
+    content: "\e96c";
+}
+
+.perx-star-callout:before {
+    content: "\e96d";
+}
+
+.perx-star-sm:before {
+    content: "\e96e";
+}
+
+.perx-stethoscope:before {
+    content: "\e96f";
+}
+
+.perx-sunglasses:before {
+    content: "\e970";
+}
+
+.perx-tags:before {
+    content: "\e971";
+}
+
+.perx-theater:before {
+    content: "\e972";
+}
+
+.perx-thread:before {
+    content: "\e973";
+}
+
+.perx-tickets:before {
+    content: "\e974";
+}
+
+.perx-tourguide:before {
+    content: "\e975";
+}
+
+.perx-toy:before {
+    content: "\e976";
+}
+
+.perx-trophy:before {
+    content: "\e977";
+}
+
+.perx-trophy-sm:before {
+    content: "\e978";
+}
+
+.perx-umbrella:before {
+    content: "\e979";
+}
+
+.perx-user-sm:before {
+    content: "\e97a";
+}
+
+.perx-winner:before {
+    content: "\e97b";
+}
+
+.perx-operator:before {
+    content: "\e97c";
+}

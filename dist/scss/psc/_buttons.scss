@@ -1,0 +1,246 @@
+// _buttons
+
+@import "mixins";
+
+
+/* Basic BUTTONS */
+
+
+.button {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #777;
+    color: #fff;
+    border: 1px solid #777;
+    border-radius: 25px;
+    -webkit-transition: -webkit-transform 0.1s ease;
+    transition: transform 0.1s ease;
+    text-shadow: none;
+
+    &:hover {
+        box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.2);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        text-decoration: underline;
+        color: #fff;
+
+        i.fa {
+            text-decoration: none;
+        }
+
+        i.perxicon {
+            text-decoration: none;
+        }
+    }
+
+    &:focus, &:active {
+        -webkit-transform: scale(0.97);
+        -ms-transform: scale(0.97);
+        transform: scale(0.97);
+        color: #fff;
+        text-shadow: none;
+        text-decoration: underline;
+
+        i.fa {
+            text-decoration: none;
+        }
+
+        i.perxicon {
+            text-decoration: none;
+        }
+    }
+    // Sizes
+    &.size-lg {
+        padding: 16px 40px;
+        font-size: 20px;
+    }
+
+    &.size-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    // Types
+    &.alt-1 {
+        background-color: #fff;
+        border-color: #777;
+        color: #777;
+
+        &:hover, &:focus {
+            color: #fff;
+            background-color: #777;
+            box-shadow: none;
+        }
+
+        &.active {
+            background-color: #777;
+            border-color: #777;
+            color: #fff;
+
+            &:active, &:focus {
+                text-decoration: none;
+                text-shadow: none;
+                background-color: #777;
+                border-color: #777;
+                color: #fff;
+            }
+        }
+    }
+
+    &.alt-2 {
+        background-color: #fff;
+        border-color: #fff;
+        color: #777;
+
+        &:hover, &:focus {
+            color: #777;
+            background-color: #fff;
+            border-color: #777;
+            box-shadow: none;
+        }
+    }
+
+    &.btn-block {
+        display: block;
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    &.disabled {
+        color: #ccc !important;
+        text-decoration: none !important;
+        border: 1px solid #e7e7e7 !important;
+        background: transparent !important;
+        cursor: default !important;
+        -webkit-transform: none !important;
+        -moz-transform: none !important;
+        transform: none !important;
+        pointer-events: none;
+        cursor: not-allowed;
+        filter: alpha(opacity=90);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        opacity: .9;
+    }
+
+    &[disabled] {
+        pointer-events: none;
+        cursor: not-allowed;
+        filter: alpha(opacity=65);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        opacity: .65;
+    }
+
+    &.sold-out {
+        background-color: #777 !important;
+        border-color: #777 !important;
+        opacity: .5 !important;
+    }
+
+    i.fa {
+        margin-right: 5px;
+        text-decoration: none;
+    }
+
+    i.perxicon {
+        text-decoration: none;
+    }
+
+    &.fa-btn-right i.fa,
+    &.fa-btn-right i.perxicon {
+        margin-left: 5px;
+        margin-right: 0;
+    }
+
+    &.btn-bottom-tag {
+        border-radius: 5px 5px 0 0;
+        margin: 10px auto 0;
+        border-bottom: none;
+        background-color: #fff;
+    }
+}
+
+.btn-margin-bottom {
+    margin-bottom: 15px;
+}
+
+.btn-margin-top {
+    margin-top: 15px;
+}
+
+.btn-group {
+    &.open {
+        overflow: inherit;
+    }
+}
+
+/* Button Types */
+
+fieldset[disabled] .button {
+  pointer-events: none;
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+            box-shadow: none;
+  opacity: .65;
+}
+
+
+
+.ladda-button[data-loading] {
+    padding-right: 46px !important;
+
+    &.btn-lg {
+        padding-right: 60px !important;
+    }
+}
+
+.ladda-button[data-loading] {
+    .ladda-spinner {
+        opacity: 1;
+        margin-left: 5px;
+    }
+    &.btn-lg {
+        .ladda-spinner {
+            margin-left: 10px;
+        }
+    }
+    &.btn-outline-primary {
+        color: #fff !important;
+    }
+    &.btn-secondary {
+        background-color: #999;
+        border-color: #999;
+        color: #fff !important;
+    }
+}
+
+.ladda-button[data-loading] .ladda-label i.perxicon {
+    display: none;
+}
+
+.ladda-spinner::after {
+    display: block;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    opacity: 1;
+
+    &.btn-lg {
+        width: 40px;
+        height: 40px;
+    }
+}

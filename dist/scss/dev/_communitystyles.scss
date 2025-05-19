@@ -1,0 +1,251 @@
+$perx-primary-text: #0B1126;
+
+a,
+a:hover,
+a:focus {
+    color: $perx-primary-text;
+}
+
+
+.colorPrimaryCTA-color {
+    color: $colorprimarycta !important;
+}
+
+.colorPrimaryCTA-fill {
+    fill: $colorprimarycta !important;
+}
+
+.colorPrimaryCTA-background-color {
+    background-color: $colorprimarycta !important;
+}
+
+.colorPrimaryCTA-border-color {
+    border-color: $colorprimarycta !important;
+}
+
+.colorPrimaryBg-color {
+    color: $colorprimarybg !important;
+}
+
+.colorPrimaryBg-fill {
+    fill: $colorprimarybg !important;
+}
+
+.colorPrimaryBg-background-color {
+    background-color: $colorprimarybg !important;
+}
+
+.colorPrimaryBg-border-color {
+    border-color: $colorprimarybg !important;
+}
+
+.colorTextInverseFg-color {
+    color: $colortextinversefg !important;
+}
+
+.colorTextInverseFg-fill {
+    fill: $colortextinversefg !important;
+}
+
+.colorTextInverseFg-background-color {
+    background-color: $colortextinversefg !important;
+}
+
+.colorTextInverseFg-border-color {
+    border-color: $colortextinversefg !important;
+}
+
+.colorPrimaryNavButtonBgInactive-background-color {
+    background-color: $colorprimarynavbuttonbginactive !important;
+}
+
+
+
+/*Bootstrap 4.6 White Button White Labeling Overrides*/
+/* BTN Primary */
+
+
+.btn-primary,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:hover,
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+    background-color: $colorprimarycta !important;
+    border-color: $colorprimarycta !important;
+    color: #fff;
+}
+
+.btn-link {
+    color: $colorprimarycta !important;
+}
+
+
+/*  btn-secondary, btn-outline-primary and 
+    btn-outline-secondary are functionally the same. */
+.btn-secondary,
+.btn-secondary:focus,
+.btn-secondary.focus,
+.btn-secondary:not(:disabled):not(.disabled):hover,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.btn-secondary:not(:disabled):not(.disabled).active,
+.show > .btn-secondary.dropdown-toggle,
+.btn-outline-primary,
+.btn-outline-primary:focus,
+.btn-outline-primary.focus,
+.btn-outline-primary:hover,
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-outline-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+    background-color: #fff;
+    border-color: $perx-primary-text !important;
+    color: $perx-primary-text !important;
+}
+
+.btn-outline-secondary,
+.btn-outline-secondary:focus,
+.btn-outline-secondary.focus,
+.btn-outline-secondary:not(:disabled):not(.disabled):active,
+.btn-outline-secondary:not(:disabled):not(.disabled).active,
+.show > .btn-secondary.dropdown-toggle {
+    background-color: #fff;
+    color: $perx-primary-text !important;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):hover,
+.btn-secondary:not(:disabled):not(.disabled):hover,
+.btn-outline-secondary:not(:disabled):not(.disabled):hover {
+    background-color: #fff;
+    color: $perx-primary-text!important;
+    box-shadow: inset 0 0 0 2px $perx-primary-text !important;
+    text-decoration: underline;
+}
+
+
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-outline-primary:not(:disabled):not(.disabled).active,
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+.btn-outline-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-primary.dropdown-toggle,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-secondary.dropdown-toggle,
+.btn-outline-secondary:not(:disabled):not(.disabled):active,
+.btn-outline-secondary:not(:disabled):not(.disabled).active,
+.btn-outline-secondary:not(:disabled):not(.disabled):active:focus,
+.btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-secondary.dropdown-toggle {
+    box-shadow: inset 0 0 0 4px $perx-primary-text !important;
+    text-decoration: underline;
+}
+
+.btn-outline-primary .perxicon, .btn-outline-secondary .perxicon {
+    fill: $perx-primary-text !important;
+}
+
+.btn-saved, 
+.btn-following {
+    border-color: $colorprimarycta !important;
+}
+
+.btn-save .perxicon, 
+.btn-saved .perxicon, 
+.btn-follow .perxicon, 
+.btn-following .perxicon {
+    fill: $colorprimarycta !important;
+}
+
+/* Bootstrap 4.6 List Group */
+.list-group-item-action {
+    color: $perx-primary-text !important;
+}
+
+.list-group-item.active {
+    background-color: $perx-primary-text !important;
+    border-color: $perx-primary-text !important;
+    color: #fff !important;
+}
+
+
+.reward-history .rewards-balance {
+    background-color: $colorprimarycta !important;
+}
+
+.reward-history .rewards-balance .perx-points,
+.reward-history .rewards-balance .perx-points path,
+.reward-history .rewards-balance .perx-points-o,
+.reward-history .rewards-balance .perx-points-o path {
+    fill: #fff !important;
+}
+
+
+.badge.badge-primary,
+.badge.badge-points {
+    color: $colorprimarycta !important;
+}
+
+.badge.badge-points.badge-points-inverse {
+    background-color: $colorprimarycta !important;
+    color: #fff !important;
+}
+
+
+a.badge.badge-points:hover,
+a.badge.badge-points:active {
+    border-color: $colorprimarycta !important;
+}
+
+/*Checkboxes and Radios*/
+
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before,
+.custom-radio .custom-control-input:focus ~ .custom-control-label::before {
+    border-color: $colorprimarycta !important;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before,
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: $colorprimarycta !important;
+    border-color: $colorprimarycta !important;
+}
+
+.btn-outline-secondary .perxicon {
+    fill: $colorprimarycta !important;
+}
+
+/* Tabbed Nav */
+.nav-tabs {
+    border-color: $colorprimarycta;
+}
+.nav-tabs .nav-link.active {
+    border-bottom-color: $colorprimarycta;
+    color: $colorprimarycta;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: transparent;
+    background-color: #f5f5f5;
+    text-decoration: underline;
+}
+
+.nav-tabs .nav-link.active:hover {
+    border-bottom-color: $colorprimarycta;
+}
+
+/* Toasts */
+
+.toast-custom {
+    border-color: $colorprimarycta !important;
+}
+
+.toast-custom .perxicon {
+    fill: $colorprimarycta !important;
+}
+
+/* Input Focus */
+
+/*.form-control:focus {
+    border-color: $colorprimarycta !important;
+}*/

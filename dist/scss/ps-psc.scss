@@ -1,0 +1,49 @@
+// PS PSC includes:
+// - PS Brand Fonts
+// - PerkSpot Themed Bootstrap
+// - FontAwesome Icons
+// - PerkSpot Legacy Custom Styling
+// - Perxicons
+// - Animate.css
+// This is a SASS import file made custom for PSC.
+// NOTE: The directory paths for Bootstrap and Font Awesome may be differnet in PSC.
+
+// FontAwesome
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/regular.scss";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
+// Fonts
+@import "psc/fonts";
+
+// Custom bootstrap variable overrides
+@import "bootstrap_variable_overrides";
+
+// Bootstrap and its default variables
+@import "bootstrap/scss/bootstrap.scss";
+
+// FontAwesome
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/regular.scss";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
+
+// Your style
+// CSS dependencies for jqueryui and ladda, inherited from PS-Legacy
+@import "psc/jqueryui";
+@import "psc/ladda";
+
+// CSS Custom styles inherited from PS-Legacy
+@import "psc/mixins";
+@import "psc/core";
+@import "psc/layout";
+@import "psc/nav";
+@import "psc/buttons";
+@import "psc/modals";
+@import "psc/checkout";
+@import "psc/search";
+@import "psc/components";
+
+// CSS Custom styles for PS-Bootstrap
+@import "general";
+@import "perxicons";
+@import "buttons";
+@import "animate";

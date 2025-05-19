@@ -1,0 +1,40 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3514697, 2018-01-23T15:40:05-0500
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: MuseoSansRounded-700 by exljbris
+ * URL: https://www.myfonts.com/fonts/exljbris/museo-sans-rounded/700/
+ * Copyright: Copyright (c) 2011 by Jos Buivenga. All rights reserved.
+ * Licensed pageviews: 5,000,000
+ *
+ * Webfont: ProximaNova-Bold by Mark Simonson
+ * URL: https://www.myfonts.com/fonts/marksimonson/proxima-nova/bold/
+ * Copyright: Copyright (c) Mark Simonson, 2005. All rights reserved.
+ * Licensed pageviews: 10,000,000
+ *
+ * Webfont: ProximaNova-BoldIt by Mark Simonson
+ * URL: https://www.myfonts.com/fonts/marksimonson/proxima-nova/bold-it/
+ * Copyright: Copyright (c) Mark Simonson, 2005. All rights reserved.
+ * Licensed pageviews: 10,000,000
+ *
+ * Webfont: ProximaNova-Regular by Mark Simonson
+ * URL: https://www.myfonts.com/fonts/marksimonson/proxima-nova/regular/
+ * Copyright: Copyright (c) Mark Simonson, 2005. All rights reserved.
+ * Licensed pageviews: 10,000,000
+ *
+ * Webfont: ProximaNova-RegularIt by Mark Simonson
+ * URL: https://www.myfonts.com/fonts/marksimonson/proxima-nova/regular-it/
+ * Copyright: Copyright (c) Mark Simonson, 2005. All rights reserved.
+ * Licensed pageviews: 10,000,000
+ *
+ *
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3514697
+ *
+ * © 2018 MyFonts Inc
+*/

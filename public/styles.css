@@ -1,0 +1,138 @@
+  @page {
+    size: 8.5in 11in;
+    margin: 0;
+    }
+
+    body {
+        background: #eaeaea !important;  
+        margin:0 !important;
+        padding-bottom: 0.5in !important;
+    }
+
+    #launcher, #new-footer {
+        display: none !important;
+    }
+    #new-header {
+        display: none !important;
+    }
+    .discounts-wrapper {
+        padding: 0 !important;
+        min-height: 0 !important;
+        height: 11in !important;
+        width: 8.5in !important;
+        background: #fff !important;
+        margin: 0.25in auto !important;
+    }
+    
+    .container {
+        padding: 0 !important;
+        margin: 0 !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        width: 8.5in !important;
+        background: #fff !important;  
+    }
+
+    .control-panel {
+        background-color: #fff;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        box-shadow: 1px 0 3px rgba(0,0,0,.15);
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 220px;
+        z-index: 999;
+        
+    }
+
+    #print-page {
+    width: 8.5in;
+    height: 11in;
+    margin: 1rem auto;
+    position: relative;
+    box-sizing: border-box;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    box-shadow: 2px 0 10px rgba(0,0,0,.15);
+    background-color: #fff !important;
+    }
+
+    .logo {
+    position: absolute;
+        top: 0.35in;
+        left: 0.45in;
+        width: 3in;
+        height: 1in;
+        object-fit: contain;
+        max-width: none;
+    }
+
+    .bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5in;
+    background-color: #201D52;
+    color: #fff !important;
+    padding: 0.75in 0.4in;
+    font-size: 0.28in;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    }
+
+
+    .bottom-bar .right img {
+        width: 1in;
+        height: 1in;
+        object-fit: contain;
+    }
+
+    .bottom-bar a {
+        color: #F56607 !important;
+        font-weight: 700;
+    }
+
+
+@media print {
+    
+    @page {
+    size: 8.5in 11in;
+    margin: 0;
+    }
+
+    body {
+        width: 8.5in !important;
+        height: 11in !important;
+        min-width: 0 !important;
+        background-color: #fff !important;
+        padding-bottom: 0 !important;
+    }
+    .discounts-wrapper {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .container {
+        padding: 0 !important;
+        margin: 0 !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        width: 8.5in !important;
+    }
+    .control-panel {
+        display: none !important;
+    }
+    #print-page {
+        margin: 0;
+    }
+
+    #new-header,
+    #export-btn {
+        display: none !important;
+    }
+}

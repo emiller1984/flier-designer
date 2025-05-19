@@ -1,0 +1,102 @@
+@import "mixins";
+
+.filters {
+    h3 {
+        font-family: ProximaNova, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
+
+.top-search-results {
+    ol {
+        -moz-column-count: 3;
+        -moz-column-gap: 10px;
+        -webkit-column-count: 3;
+        -webkit-column-gap: 10px;
+        column-count: 3;
+        column-gap: 10px;
+
+        @include small {
+            width: 400px;
+        }
+
+        @include medium {
+            width: 100%;
+            -moz-column-count: 1;
+            -moz-column-gap: 0;
+            -webkit-column-count: 1;
+            -webkit-column-gap: 0;
+            column-count: 1;
+            column-gap: 0;
+        }
+    }
+}
+
+.no-results-body {
+    display: none;
+
+    @include medium {
+        border-radius: 6px;
+        height: 600px;
+        display: block;
+
+        .perxicon {
+            font-size: 80px;
+            line-height: 1;
+            height: 80px;
+            width: 80px;
+        }
+    }
+}
+
+.search-results {
+    .result-offer {
+        .logo-container {
+            flex: 1;
+
+            img {
+                max-width: 90px;
+                max-height: 90px;
+            }
+        }
+    }
+
+    .result-offer, .result-brand {
+        .merchant-info {
+            flex: 3;
+
+            .merchant-description {
+                max-height: 80px;
+                min-height: 40px;
+            }
+        }
+    }
+
+    .category-results-content {
+        a {
+            text-decoration: none;
+
+            .category-name {
+                text-decoration: underline;
+            }
+
+            :hover {
+                .category-name {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .result-category {
+            i.perxicon {
+                font-size: 25pt;
+            }
+        }
+    }
+
+    .result-card {
+        border: dotted 1px #ccc;
+        border-radius: 5px;
+    }
+}

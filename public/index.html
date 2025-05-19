@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PDF Export Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../dist/css/theme-root.min.css" rel="stylesheet"> 
+  <link href="../dist/css/ps-vanilla-fonts.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="control-panel">
+    <button id="export-btn" class="btn btn-primary btn-block">Export as PDF</button>
+    <button id="edit-passcode" class="btn btn-secondary btn-block">Edit Passcode</button>
+    <button id="edit-community" class="btn btn-secondary btn-block">Change Community Logo</button>
+    <button id="edit-url" class="btn btn-secondary btn-block">Change URL</button>
+    <button id="edit-qr" class="btn btn-secondary btn-block">Edit QR Code</button>
+</div>
+    
+
+
+  <div id="print-page" style="background-image: url(https://cms.perkspot.com/media/nnubhrge/flier-content.png); background-size: contain;">
+    <img src="https://psprods3ep.azureedge.net/cdn.perkspot.com/images/communities/logo_346.png" alt="Logo" class="logo">
+    <div class="bottom-bar">
+        <div class="left">
+            Visit <a href="http://ps.perkspot.com" class="community-url">ps.perkspot.com</a> to get started today.<br>
+            Use Access Code: <span class="code">1234567</span>
+        </div>
+        <div class="right">
+            <img src="https://cms.perkspot.com/media/csjjakof/qr-code.png" class="qr-code">
+        </div>
+    </div>
+  </div>
+
+  <div class="modal" tabindex="-1" role="dialog" id="url-modal" style="display: none;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Enter Custom URL</h5>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="url-input" class="form-control" placeholder="Enter full URL (e.g., https://example.com)">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancel-url">Cancel</button>
+          <button type="button" class="btn btn-primary" id="submit-url">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+  <div class="modal" tabindex="-1" role="dialog" id="passcode-modal" style="display: none;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Enter Access Code</h5>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="passcode-input" class="form-control" placeholder="Enter code">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancel-passcode">Cancel</button>
+          <button type="button" class="btn btn-primary" id="submit-passcode">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" tabindex="-1" role="dialog" id="community-modal" style="display: none;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Enter Community ID</h5>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="community-input" class="form-control" placeholder="Enter community ID (e.g., 926)">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancel-community">Cancel</button>
+          <button type="button" class="btn btn-primary" id="submit-community">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" tabindex="-1" role="dialog" id="qr-modal" style="display: none;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit QR Code</h5>
+        </div>
+        <div class="modal-body">
+          <label for="qr-input">QR Code Destination URL:</label>
+          <input type="text" id="qr-input" class="form-control" placeholder="Enter destination URL">
+          <div class="form-check mt-3">
+            <input type="checkbox" class="form-check-input" id="qr-hide">
+            <label class="form-check-label" for="qr-hide">Hide QR Code</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancel-qr">Cancel</button>
+          <button type="button" class="btn btn-primary" id="submit-qr">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</html>

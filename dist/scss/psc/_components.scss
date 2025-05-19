@@ -1,0 +1,103 @@
+// Components
+
+.event-description-fade {
+    max-height: 6.25rem; /* exactly five lines */
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    content: "";
+}
+
+.event-description-fade:after {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1.25em;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 1) 80%);
+    content: "";
+}
+
+/* parsley */
+
+form {
+    .parsley-errors-list {
+        padding: 0;
+
+        .parsley-required, .parsley-type, .parsley-length, .parsley-pattern {
+            list-style-type: none;
+            margin: 5px 0 5px 0;
+            color: #c44;
+            font-style: italic;
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
+}
+
+.ticket-events-container {
+    .flatpickr-calendar {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+
+    .flatpickr-calendar-focused {
+        box-shadow: $input-focus-box-shadow !important;
+    }
+
+    .ticket-events-form-container, .venue-details-container {
+        box-shadow: $box-shadow-sm;
+        background-color: #fff;
+
+        @include small {
+            box-shadow: none;
+            background-color: transparent;
+        }
+
+        .venue-details-name {
+            padding: 1.25rem 1.25rem 0 1.25rem;
+        }
+    }
+
+    .form-ticket-inputs-datetime {
+        background-clip: border-box !important;
+        border-radius: 0 !important;
+
+        @include small {
+            background-color: $light !important;
+            border: 1px solid #ccc !important;
+        }
+    }
+
+    .datetime-container-small {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 1.25rem 1.25rem 0 1.25rem;
+    }
+
+    .ticket-event-participant-quantity {
+        border: 1px solid #fff !important;
+
+        @include medium {
+            border: 1px solid #ccc !important;
+        }
+
+        .card-body {
+            padding: 0;
+
+            @include medium {
+                padding: 1.25rem;
+            }
+        }
+    }
+}
+
+.ticket-performance-template {
+    max-height: 370px;
+    overflow-y: auto;
+}
+
+.ticket-options-list:first-child {
+    border-top: 1px solid rgba(0,0,0,0.125)
+}
