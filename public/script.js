@@ -18,7 +18,7 @@ $('#export-btn').click(() => {
   // Fallback: hide spinner after 5 seconds
   setTimeout(() => {
     $('#loading-overlay').hide();
-  }, 5000);
+  }, 8000);
 });
 
 $(document).ready(function () {
@@ -97,5 +97,9 @@ $(document).ready(function () {
     }
 
     $('#qr-modal').hide();
+  });
+  // Allow user to manually dismiss the loading overlay if needed
+  $('#loading-overlay').click(function () {
+    $(this).hide();
   });
 });
