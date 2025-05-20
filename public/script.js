@@ -18,10 +18,6 @@ $('#export-btn').click(() => {
   link.download = 'flier.pdf';
   link.click();
 
-  // Fallback: hide spinner after 5 seconds
-  setTimeout(() => {
-    $('#loading-overlay').hide();
-  }, 20000);
 });
 
 $(document).ready(function () {
