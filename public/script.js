@@ -1,4 +1,7 @@
 $('#export-btn').click(() => {
+  // Show the loading spinner overlay
+  $('#loading-overlay').show();
+
   const currentCode = $('.code').text().trim();
   const logoSrc = $('.logo').attr('src');
   const communityMatch = logoSrc.match(/logo_(\d+)\.png/);
@@ -11,6 +14,11 @@ $('#export-btn').click(() => {
   link.href = `/generate-pdf?code=${encodeURIComponent(currentCode)}&community=${encodeURIComponent(communityId)}&url=${encodeURIComponent(currentUrl)}&qr=${encodeURIComponent(qrCodeUrl)}`;
   link.download = 'flier.pdf';
   link.click();
+
+  // Fallback: hide spinner after 5 seconds
+  setTimeout(() => {
+    $('#loading-overlay').hide();
+  }, 5000);
 });
 
 $(document).ready(function () {

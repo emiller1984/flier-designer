@@ -1,113 +1,127 @@
-  @page {
+@page {
     size: 8.5in 11in;
     margin: 0;
-    }
+}
 
-    body {
-        background: #eaeaea !important;  
-        margin:0 !important;
+body {
+    background: #eaeaea !important;  
+    margin:0 !important;
 
-    }
+}
 
-    #launcher, #new-footer {
-        display: none !important;
-    }
+#launcher, #new-footer {
+    display: none !important;
+}
 
-    #new-header {
-        display: none !important;
-    }
+#new-header {
+    display: none !important;
+}
 
-    .discounts-wrapper {
-        padding: 0 !important;
-        min-height: 0 !important;
-        height: 11in !important;
-        width: 8.5in !important;
-        background: #fff !important;
-        margin: 0.25in auto !important;
-    }
-    
-    .container {
-        padding: 0 !important;
-        margin: 0 !important;
-        min-width: 0 !important;
-        max-width: none !important;
-        width: 8.5in !important;
-        background: #fff !important;  
-    }
+.discounts-wrapper {
+    padding: 0 !important;
+    min-height: 0 !important;
+    height: 11in !important;
+    width: 8.5in !important;
+    background: #fff !important;
+    margin: 0.25in auto !important;
+}
 
-    .page-container {
-        display: flex;
-        flex-direction: row;
-    }
+.container {
+    padding: 0 !important;
+    margin: 0 !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    width: 8.5in !important;
+    background: #fff !important;  
+}
 
-    .control-panel {
-        background-color: #fff;
-        padding: 1rem;
-        box-shadow: 1px 0 3px rgba(0,0,0,.15);
-        width: 300px;
-        z-index: 999;
-    }
+.page-container {
+    display: flex;
+    flex-direction: row;
+}
 
-
-    .modal {
-        background-color: rgba(0,0,0,.63);
-    }
-
-    #print-page {
-        width: 8.5in;
-        min-width: 8.5in;
-        height: 11in;
-        min-height: 11in;
-        margin: 1rem auto;
-        position: relative;
-        box-sizing: border-box;
-        background-size: contain !important;
-        background-repeat: no-repeat !important;
-        box-shadow: 2px 0 10px rgba(0,0,0,.15);
-        background-color: #fff !important;
-    }
-
-    .logo {
-        position: absolute;
-        top: 0.35in;
-        left: 0.45in;
-        width: 3in;
-        height: 1in;
-        object-fit: contain;
-        object-position: center left;
-        max-width: none;
-    }
-
-    .bottom-bar {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 1.5in;
-        background-color: #201D52;
-        color: #fff !important;
-        padding: 0.75in 0.4in;
-        font-size: 0.23in;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        align-content: center;
-        align-items: center;
-    }
+.control-panel {
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 1px 0 3px rgba(0,0,0,.15);
+    width: 300px;
+    z-index: 999;
+}
 
 
-    .bottom-bar .right img {
-        width: 1in;
-        height: 1in;
-        object-fit: contain;
-        padding: 0.2rem;
-        background-color: #fff;
-    }
+.modal {
+    background-color: rgba(0,0,0,.63);
+}
 
-    .bottom-bar a {
-        color: #F56607 !important;
-        font-weight: 700;
-    }
+#print-page {
+    width: 8.5in;
+    min-width: 8.5in;
+    height: 11in;
+    min-height: 11in;
+    margin: 1rem auto;
+    position: relative;
+    box-sizing: border-box;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    box-shadow: 2px 0 10px rgba(0,0,0,.15);
+    background-color: #fff !important;
+}
+
+.logo {
+    position: absolute;
+    top: 0.35in;
+    left: 0.45in;
+    width: 3in;
+    height: 1in;
+    object-fit: contain;
+    object-position: center left;
+    max-width: none;
+}
+
+.bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5in;
+    background-color: #201D52;
+    color: #fff !important;
+    padding: 0.75in 0.4in;
+    font-size: 0.23in;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+}
+
+
+.bottom-bar .right img {
+    width: 1in;
+    height: 1in;
+    object-fit: contain;
+    padding: 0.2rem;
+    background-color: #fff;
+}
+
+.bottom-bar a {
+    color: #F56607 !important;
+    font-weight: 700;
+}
+
+/* Full-page loading overlay shown during PDF export */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 @media print {
@@ -149,3 +163,4 @@
     }
 
 }
+
