@@ -10,28 +10,31 @@
 </head>
 <body>
 
-<div class="control-panel">
-    <button id="export-btn" class="btn btn-primary btn-block">Export as PDF</button>
-    <button id="edit-passcode" class="btn btn-secondary btn-block">Edit Passcode</button>
-    <button id="edit-community" class="btn btn-secondary btn-block">Change Community Logo</button>
-    <button id="edit-url" class="btn btn-secondary btn-block">Change URL</button>
-    <button id="edit-qr" class="btn btn-secondary btn-block">Edit QR Code</button>
-</div>
+  <div class="page-container">
     
-
-
-  <div id="print-page" style="background-image: url(https://cms.perkspot.com/media/nnubhrge/flier-content.png); background-size: contain;">
-    <img src="https://psprods3ep.azureedge.net/cdn.perkspot.com/images/communities/logo_346.png" alt="Logo" class="logo">
-    <div class="bottom-bar">
-        <div class="left">
-            Visit <a href="http://ps.perkspot.com" class="community-url">ps.perkspot.com</a> to get started today.<br>
-            Use Access Code: <span class="code">1234567</span>
-        </div>
-        <div class="right">
-            <img src="https://cms.perkspot.com/media/csjjakof/qr-code.png" class="qr-code">
-        </div>
+        
+    <div id="print-page" style="background-image: url(https://cms.perkspot.com/media/nnubhrge/flier-content.png); background-size: contain;">
+      <img src="https://psprods3ep.azureedge.net/cdn.perkspot.com/images/communities/logo_346.png" alt="Logo" class="logo">
+      <div class="bottom-bar">
+          <div class="left">
+              Visit <a href="http://ps.perkspot.com" class="community-url">ps.perkspot.com</a> to get started today.<br>
+              Use Access Code: <span class="code">1234567</span>
+          </div>
+          <div class="right">
+              <img src="https://cms.perkspot.com/media/csjjakof/qr-code.png" class="qr-code">
+          </div>
+      </div>
     </div>
+
+    <div class="control-panel">
+      <button id="export-btn" class="btn btn-primary btn-block">Export as PDF</button>
+      <button id="edit-passcode" class="btn btn-secondary btn-block">Edit Passcode</button>
+      <button id="edit-community" class="btn btn-secondary btn-block">Change Community Logo</button>
+      <button id="edit-url" class="btn btn-secondary btn-block">Change URL</button>
+      <button id="edit-qr" class="btn btn-secondary btn-block">Edit QR Code</button>
   </div>
+
+</div>
 
   <div class="modal" tabindex="-1" role="dialog" id="url-modal" style="display: none;">
     <div class="modal-dialog" role="document">
