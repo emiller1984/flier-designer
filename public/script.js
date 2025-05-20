@@ -10,18 +10,31 @@ $('#export-btn').click(() => {
   const qrCodeEl = $('.qr-code');
   const qrCodeUrl = qrCodeEl.is(':visible') ? qrCodeEl.attr('src') : '';
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const creativeUrl = urlParams.get('creativeurl') || '';
+
   const link = document.createElement('a');
-  link.href = `/generate-pdf?code=${encodeURIComponent(currentCode)}&community=${encodeURIComponent(communityId)}&url=${encodeURIComponent(currentUrl)}&qr=${encodeURIComponent(qrCodeUrl)}`;
+  link.href = `/generate-pdf?code=${encodeURIComponent(currentCode)}&community=${encodeURIComponent(communityId)}&url=${encodeURIComponent(currentUrl)}&qr=${encodeURIComponent(qrCodeUrl)}&creativeurl=${encodeURIComponent(creativeUrl)}`;
   link.download = 'flier.pdf';
   link.click();
 
   // Fallback: hide spinner after 5 seconds
   setTimeout(() => {
     $('#loading-overlay').hide();
-  }, 8000);
+  }, 20000);
 });
 
 $(document).ready(function () {
+  // Apply creative background image from URL param if present
+  const urlParams = new URLSearchParams(window.location.search);
+  const creativeUrlParam = urlParams.get('creativeurl');
+  if (creativeUrlParam) {
+    const fullCreativeUrl = /^https?:\/\//i.test(creativeUrlParam)
+      ? creativeUrlParam
+      : 'https://' + creativeUrlParam;
+    $('#print-page').css('background-image', `url(${fullCreativeUrl})`);
+  }
+
   $('#edit-passcode').click(function () {
     $('#passcode-modal').show();
   });

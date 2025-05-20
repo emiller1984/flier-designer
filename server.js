@@ -27,10 +27,11 @@ app.get('/generate-pdf', async (req, res) => {
   const community = req.query.community || '';
   const customUrl = req.query.url || '';
   const qrCode = req.query.qr || '';
+  const creativeUrl = req.query.creativeurl || '';
 
   await page.goto(`http://localhost:${PORT}`, { waitUntil: 'networkidle0' });
 
-  await page.evaluate((code, community, customUrl, qrCode) => {
+  await page.evaluate((code, community, customUrl, qrCode, creativeUrl) => {
     const el = document.querySelector('.code');
     if (el) el.textContent = code;
 
@@ -55,7 +56,15 @@ app.get('/generate-pdf', async (req, res) => {
         qr.style.display = 'none';
       }
     }
-  }, code, community, customUrl, qrCode);
+
+    const printPage = document.getElementById('print-page');
+    if (printPage && creativeUrl) {
+      const fullUrl = /^https?:\/\//i.test(creativeUrl)
+        ? creativeUrl
+        : 'https://' + creativeUrl;
+      printPage.style.backgroundImage = `url(${fullUrl})`;
+    }
+  }, code, community, customUrl, qrCode, creativeUrl);
 
   // Wait for the updated logo to fully load
   await page.waitForFunction(() => {
@@ -68,6 +77,27 @@ app.get('/generate-pdf', async (req, res) => {
     const qr = document.querySelector('.qr-code');
     return !qr || qr.style.display === 'none' || (qr.complete && qr.naturalHeight !== 0);
   });
+
+  // Wait for background image to load if creativeUrl is used
+  if (creativeUrl) {
+    await page.evaluate(async () => {
+      const el = document.getElementById('print-page');
+      if (!el) return;
+
+      const style = window.getComputedStyle(el);
+      const bg = style.backgroundImage;
+      const match = bg.match(/url\("?(.*?)"?\)/);
+
+      if (match && match[1]) {
+        await new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = match[1];
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+      }
+    });
+  }
 
   await page.addStyleTag({
     content: `

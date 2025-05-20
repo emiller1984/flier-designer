@@ -54,6 +54,7 @@ body {
 }
 
 #print-page {
+    background-image: url('https://cms.perkspot.com/media/nnubhrge/flier-content.png');
     width: 8.5in;
     min-width: 8.5in;
     height: 11in;
@@ -123,6 +124,7 @@ body {
     justify-content: center;
     flex-direction: column;
     gap: 10px;
+    align-content: center;
 }
 
 
@@ -165,4 +167,3 @@ body {
     }
 
 }
-
