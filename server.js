@@ -35,9 +35,14 @@ app.get('/generate-pdf', async (req, res) => {
     const el = document.querySelector('.code');
     if (el) el.textContent = code;
 
+    const accessSection = document.querySelector('.access-code-section');
+    if (accessSection) {
+      accessSection.style.display = code ? 'block' : 'none';
+    }
+
     const logo = document.querySelector('.logo');
     if (logo && community) {
-      logo.src = `https://psprods3ep.azureedge.net/cdn.perkspot.com/images/communities/logo_${community}.png`;
+      logo.src = community;
     }
 
     const urlEl = document.querySelector('.community-url');
