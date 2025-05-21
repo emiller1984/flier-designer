@@ -127,6 +127,10 @@ body {
     align-content: center;
 }
 
+#copy-link {
+    margin-top: 0.5rem;
+}
+
 
 @media print {
     

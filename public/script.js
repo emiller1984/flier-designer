@@ -21,8 +21,34 @@ $('#export-btn').click(() => {
 });
 
 $(document).ready(function () {
-  // Apply creative background image from URL param if present
   const urlParams = new URLSearchParams(window.location.search);
+
+  // Access Code
+  const codeParam = urlParams.get('code');
+  if (codeParam) {
+    $('.code').text(codeParam);
+  }
+
+  // Community Logo
+  const communityParam = urlParams.get('community');
+  if (communityParam) {
+    $('.logo').attr('src', `https://psprods3ep.azureedge.net/cdn.perkspot.com/images/communities/logo_${communityParam}.png`);
+  }
+
+  // Link URL
+  const urlParam = urlParams.get('url');
+  if (urlParam) {
+    const displayText = urlParam.replace(/^https?:\/\//i, '');
+    $('.community-url').attr('href', urlParam).text(displayText);
+  }
+
+  // QR Code
+  const qrParam = urlParams.get('qr');
+  if (qrParam) {
+    $('.qr-code').attr('src', qrParam).show();
+  }
+
+  // Background image override
   const creativeUrlParam = urlParams.get('creativeurl');
   if (creativeUrlParam) {
     const fullCreativeUrl = /^https?:\/\//i.test(creativeUrlParam)
@@ -110,5 +136,63 @@ $(document).ready(function () {
   // Allow user to manually dismiss the loading overlay if needed
   $('#loading-overlay').click(function () {
     $(this).hide();
+  });
+
+  // Copy Link handler for shareable flier URL
+  $('#copy-link').click(function () {
+    const code = $('.code').text().trim();
+    const logoSrc = $('.logo').attr('src');
+    const communityMatch = logoSrc.match(/logo_(\d+)\.png/);
+    const community = communityMatch ? communityMatch[1] : '';
+    const url = $('.community-url').attr('href');
+    const qrCodeEl = $('.qr-code');
+    const qr = qrCodeEl.is(':visible') ? qrCodeEl.attr('src') : '';
+    const bgImage = $('#print-page').css('background-image');
+    const creativeMatch = bgImage.match(/url\("?(.*?)"?\)/);
+    const creativeurl = creativeMatch ? creativeMatch[1].replace(/^https?:\/\//i, '') : '';
+
+    const base = window.location.origin + window.location.pathname;
+    const params = new URLSearchParams({
+      code,
+      community,
+      url,
+      qr,
+      creativeurl,
+    });
+
+    const shareUrl = `${base}?${params.toString()}`;
+
+    // Copy to clipboard
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      alert('Link copied to clipboard!');
+    }).catch(() => {
+      alert('Failed to copy link.');
+    });
+  });
+  // Creative Image modal handlers
+  $('#edit-creative').click(function () {
+    $('#creative-modal').show();
+  });
+
+  $('#cancel-creative').click(function () {
+    $('#creative-modal').hide();
+  });
+
+  $('#submit-creative').click(function () {
+    const creativeUrl = $('#creative-input').val().trim();
+    if (creativeUrl) {
+      const fullUrl = /^https?:\/\//i.test(creativeUrl)
+        ? creativeUrl
+        : 'https://' + creativeUrl;
+      $('#print-page').css('background-image', `url(${fullUrl})`);
+
+      // Update URL param in-place for export consistency
+      const currentParams = new URLSearchParams(window.location.search);
+      currentParams.set('creativeurl', creativeUrl.replace(/^https?:\/\//i, ''));
+      const newUrl = `${window.location.pathname}?${currentParams.toString()}`;
+      window.history.replaceState({}, '', newUrl);
+    }
+
+    $('#creative-modal').hide();
   });
 });

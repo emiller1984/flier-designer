@@ -28,10 +28,12 @@
 
     <div class="control-panel">
       <button id="export-btn" class="btn btn-primary btn-block">Export as PDF</button>
+      <button id="copy-link" class="btn btn-secondary btn-block">Copy Link</button>
       <button id="edit-passcode" class="btn btn-secondary btn-block">Edit Passcode</button>
       <button id="edit-community" class="btn btn-secondary btn-block">Change Community Logo</button>
       <button id="edit-url" class="btn btn-secondary btn-block">Change URL</button>
       <button id="edit-qr" class="btn btn-secondary btn-block">Edit QR Code</button>
+      <button id="edit-creative" class="btn btn-secondary btn-block">Swap Creative Image</button>
   </div>
 
 </div>
@@ -114,6 +116,23 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" id="cancel-qr">Cancel</button>
           <button type="button" class="btn btn-primary" id="submit-qr">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" tabindex="-1" role="dialog" id="creative-modal" style="display: none;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Enter Background Image URL</h5>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="creative-input" class="form-control" placeholder="e.g., https://cdn.site.com/path/to/flier.png">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancel-creative">Cancel</button>
+          <button type="button" class="btn btn-primary" id="submit-creative">Submit</button>
         </div>
       </div>
     </div>
