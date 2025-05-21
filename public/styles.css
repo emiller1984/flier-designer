@@ -46,6 +46,13 @@ body {
     box-shadow: 1px 0 3px rgba(0,0,0,.15);
     width: 300px;
     z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.control-panel .form-check-input {
+    margin-top: 0.15rem;
 }
 
 
@@ -125,6 +132,10 @@ body {
     flex-direction: column;
     gap: 10px;
     align-content: center;
+}
+
+#copy-link {
+    margin-top: 0.5rem;
 }
 
 
