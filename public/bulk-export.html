@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bulk Flier Export</title>
+  <link href="../dist/css/theme-root.min.css" rel="stylesheet"> 
+  <link href="../dist/css/ps-vanilla-fonts.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="container-fluid p-3">
+    <h1>Bulk Flier Export</h1>
+
+    <!-- Section 1: Select Communities -->
+    <section>
+      <h2>Select Communities</h2>
+      <div id="community-list" class="scrollable checkbox-list">
+        <!-- Will be populated from /data/communities.csv -->
+      </div>
+      <button id="select-all-communities">Select All</button>
+      <button id="deselect-all-communities">Deselect All</button>
+    </section>
+
+    <!-- Section 2: Select Templates -->
+    <section>
+      <h2>Select Templates</h2>
+      <div id="template-list" class="scrollable checkbox-list">
+        <!-- Will be populated from /templates/templates.csv -->
+      </div>
+      <div>
+        <label for="template-url">Add Template by URL:</label>
+        <input type="text" id="template-url" placeholder="https://cdn.site.com/flier.png" />
+        <button id="add-template-url">Add</button>
+      </div>
+      <div>
+        <label for="template-upload">Upload Template Image:</label>
+        <input type="file" id="template-upload" accept="image/*" />
+      </div>
+    </section>
+
+    <!-- Section 3: Export Summary -->
+    <section>
+      <h2>Export Summary</h2>
+      <p id="export-summary">Selected Communities: 0 | Selected Templates: 0 | PDFs to Generate: 0</p>
+      <button id="generate-pdfs">Generate PDFs</button>
+    </section>
+  </div>
+
+  <script src="/bulk-export.js"></script>
+</body>
+</html>
