@@ -11,33 +11,43 @@ document.addEventListener('DOMContentLoaded', () => {
     summary.textContent = `Selected Communities: ${selectedCommunities.size} | Selected Templates: ${selectedTemplates.size} | PDFs to Generate: ${total}`;
   }
 
-  function createCheckbox(id, label, container, set) {
-    const wrapper = document.createElement('label');
-    wrapper.style.display = 'block';
-    const box = document.createElement('input');
-    box.type = 'checkbox';
-    box.value = id;
-    box.checked = true;
-    box.addEventListener('change', () => {
-      if (box.checked) {
+  function createCheckbox(id, labelText, container, set) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'custom-control custom-checkbox';
+
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.className = 'custom-control-input';
+    input.id = `checkbox-${id}`;
+    input.value = id;
+    input.checked = true;
+
+    const label = document.createElement('label');
+    label.className = 'custom-control-label';
+    label.setAttribute('for', input.id);
+    label.textContent = labelText;
+
+    input.addEventListener('change', () => {
+      if (input.checked) {
         set.add(id);
       } else {
         set.delete(id);
       }
       updateSummary();
     });
-    wrapper.appendChild(box);
-    wrapper.append(` ${label}`);
+
+    wrapper.appendChild(input);
+    wrapper.appendChild(label);
     container.appendChild(wrapper);
     set.add(id);
   }
 
-  function loadCSV(path, handler) {
+  function loadCSV(path, handler, skipHeader = true) {
     fetch(path)
       .then(res => res.text())
       .then(text => {
         const lines = text.trim().split('\n');
-        const rows = lines.slice(1).map(line => line.split(','));
+        const rows = (skipHeader ? lines.slice(1) : lines).map(line => line.split(','));
         handler(rows);
       })
       .catch(err => console.error(`Error loading ${path}:`, err));
@@ -59,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
       createCheckbox(url, label, templateList, selectedTemplates);
     });
     updateSummary();
-  });
+  }, false);
 
   // Select/Deselect All for communities
   document.getElementById('select-all-communities').addEventListener('click', () => {
@@ -102,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
           createCheckbox(url, label, templateList, selectedTemplates);
         });
         updateSummary();
-      });
+      }, false);
     })
     .catch(err => {
       console.error(err);
@@ -135,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
           createCheckbox(url, label, templateList, selectedTemplates);
         });
         updateSummary();
-      });
+      }, false);
     })
     .catch(err => {
       console.error(err);

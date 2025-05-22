@@ -77,9 +77,12 @@ app.get('/generate-pdf', async (req, res) => {
 
     const printPage = document.getElementById('print-page');
     if (printPage && creativeUrl) {
-      const fullUrl = /^https?:\/\//i.test(creativeUrl)
-        ? creativeUrl
-        : 'https://' + creativeUrl;
+      let fullUrl = creativeUrl;
+      if (creativeUrl.startsWith('/')) {
+        fullUrl = 'http://localhost:3000' + creativeUrl;
+      } else if (!creativeUrl.startsWith('http')) {
+        fullUrl = 'https://' + creativeUrl;
+      }
       printPage.style.backgroundImage = `url(${fullUrl})`;
     }
   }, code, community, customUrl, qrCode, creativeUrl);
@@ -167,12 +170,23 @@ app.post('/api/upload-template', upload.single('template'), (req, res) => {
 
     const relativeUrl = `/templates/${originalName}`;
     const csvPath = path.join(__dirname, 'templates', 'templates.csv');
-    fs.appendFile(csvPath, `${relativeUrl}\n`, appendErr => {
-      if (appendErr) {
-        console.error('Failed to write to templates.csv:', appendErr);
-        return res.status(500).json({ error: 'Failed to update template list' });
+
+    fs.readFile(csvPath, 'utf8', (readErr, data) => {
+      if (readErr && readErr.code !== 'ENOENT') {
+        console.error('Error reading templates.csv:', readErr);
+        return res.status(500).json({ error: 'Failed to read template list' });
       }
-      return res.json({ success: true, path: relativeUrl });
+
+      const needsNewline = data && !data.endsWith('\n');
+      const line = (needsNewline ? '\n' : '') + `${relativeUrl}\n`;
+
+      fs.appendFile(csvPath, line, appendErr => {
+        if (appendErr) {
+          console.error('Failed to write to templates.csv:', appendErr);
+          return res.status(500).json({ error: 'Failed to update template list' });
+        }
+        return res.json({ success: true, path: relativeUrl });
+      });
     });
   });
 });
@@ -265,7 +279,12 @@ app.post('/api/bulk-generate', async (req, res) => {
 
         const printPage = document.getElementById('print-page');
         if (printPage && creativeUrl) {
-          const fullUrl = /^https?:\/\//i.test(creativeUrl) ? creativeUrl : 'https://' + creativeUrl;
+          let fullUrl = creativeUrl;
+          if (creativeUrl.startsWith('/')) {
+            fullUrl = 'http://localhost:3000' + creativeUrl;
+          } else if (!creativeUrl.startsWith('http')) {
+            fullUrl = 'https://' + creativeUrl;
+          }
           printPage.style.backgroundImage = `url(${fullUrl})`;
         }
       }, communityData.access_code,

@@ -10,42 +10,64 @@
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <div class="container-fluid p-3">
+  <div class="container p-3 mt-1 bg-white shadow-sm" style="max-width: 1200px;">
+    <div class="row">
+        <div class="col-12">
     <h1>Bulk Flier Export</h1>
+    <p class="lead">Follow the steps below to bulk export fliers.</p>
+            
+        <!-- Section 1: Select Communities -->
+        <section class="mb-2">
+        <h2>Step 1: Select Communities</h2>
+        <p>Fliers will be populated with logos, urls and access codes from the selected communities.</p>
+        <div class="select-tools">
+            <button id="select-all-communities" class="btn btn-outline-secondary">Select All</button>
+            <button id="deselect-all-communities" class="btn btn-outline-secondary">Deselect All</button>
+        </div>
+        <div id="community-list" class="checkbox-list">
+            <!-- Will be populated from /data/communities.csv -->
+        </div>
+        
+        </section>
+<hr>
+        <!-- Section 2: Select Templates -->
+        <section class="mb-4">
+        <h2>Step 2: Select Templates</h2>
+        <p>Now, select the templats you'd like to export for. The bulk exporter will generate a PDF of each template selected for each community selected.</p>
+        <p>You can select existing templates from the list, or create a new template by uploading an image or pasting a CDN URL.</p>
+        <div class="template-options">
+        <div id="template-list" class="checkbox-list">
+            <!-- Will be populated from /templates/templates.csv -->
+        </div>
+        <div class="select-tools">
+            <div class="form-group">
+                <label for="template-url">Add Template by URL:</label>
+                <div class="form-row">
+                    <div class="col-9">
+                    <input type="text" id="template-url" placeholder="https://cdn.site.com/flier.png"  class="form-control" />
+                    </div>
+                    <div class="col-3">
+                    <button id="add-template-url" class="btn btn-outline-secondary">Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="template-upload">OR: Upload Template Image:</label>
+                <input type="file" id="template-upload" accept="image/*" class="btn btn-outline-light" />
+            </div>
+        </div>
+        </div>
+        
+        </section>
 
-    <!-- Section 1: Select Communities -->
-    <section>
-      <h2>Select Communities</h2>
-      <div id="community-list" class="scrollable checkbox-list">
-        <!-- Will be populated from /data/communities.csv -->
-      </div>
-      <button id="select-all-communities">Select All</button>
-      <button id="deselect-all-communities">Deselect All</button>
-    </section>
-
-    <!-- Section 2: Select Templates -->
-    <section>
-      <h2>Select Templates</h2>
-      <div id="template-list" class="scrollable checkbox-list">
-        <!-- Will be populated from /templates/templates.csv -->
-      </div>
-      <div>
-        <label for="template-url">Add Template by URL:</label>
-        <input type="text" id="template-url" placeholder="https://cdn.site.com/flier.png" />
-        <button id="add-template-url">Add</button>
-      </div>
-      <div>
-        <label for="template-upload">Upload Template Image:</label>
-        <input type="file" id="template-upload" accept="image/*" />
-      </div>
-    </section>
-
-    <!-- Section 3: Export Summary -->
-    <section>
-      <h2>Export Summary</h2>
-      <p id="export-summary">Selected Communities: 0 | Selected Templates: 0 | PDFs to Generate: 0</p>
-      <button id="generate-pdfs">Generate PDFs</button>
-    </section>
+        <!-- Section 3: Export Summary -->
+        <section class="mb-2">
+        <h2>Export Summary</h2>
+        <p id="export-summary">Selected Communities: 0 | Selected Templates: 0 | PDFs to Generate: 0</p>
+        <button id="generate-pdfs" class="btn btn-primary">Generate PDFs</button>
+        </section>
+    </div>
+    </div>
   </div>
 
   <script src="/bulk-export.js"></script>
