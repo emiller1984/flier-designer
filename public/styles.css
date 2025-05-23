@@ -159,20 +159,20 @@ body {
 .custom-control-label {
     padding: 1rem 1rem 1rem 3.5rem;
     border-bottom: 1px solid #e7e7e7;
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 20px;
     display: block;
 }
 
 .custom-control-label::before {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.3rem;
+    height: 1.3rem;
     left: 1.1rem;
     top: 1rem;
 }
 .custom-control-label::after {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.3rem;
+    height: 1.3rem;
     left: 1.1rem;
     top: 1rem;
 }
@@ -201,6 +201,7 @@ body {
     padding: 2rem;
     width: 400px;
     margin: 2rem auto;
+    box-shadow: 1px 0 100px rgba(0, 0, 0, .3);
 }
 
 @media print {

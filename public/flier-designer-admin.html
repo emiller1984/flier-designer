@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flier Designer Admin - Proof of Concept</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../dist/css/theme-root.min.css" rel="stylesheet"> 
+  <link href="../dist/css/ps-vanilla-fonts.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="page-container">
+    
+        
+    <div id="print-page">
+      <img src="https://psprods3ep.azureedge.net/cdn.perkspot.com/images/communities/logo_346.png" alt="Logo" class="logo">
+      <div class="bottom-bar">
+          <div class="left">
+              Visit <a href="http://ps.perkspot.com" class="community-url">ps.perkspot.com</a> to get started today.<br>
+              <p class="access-code-section mb-0">Use Access Code: <span class="code">1234567</span></p>
+          </div>
+          <div class="right">
+              <img src="https://cms.perkspot.com/media/csjjakof/qr-code.png" class="qr-code">
+          </div>
+      </div>
+    </div>
+
+    <div class="control-panel">
+        <div class="section border-bottom pb-2">
+          <h5>Customize Your Flier:</h5>
+          
+          <div class="form-group">
+            <label for="community-input">Community Logo URL</label>
+            <input type="text" id="community-input" class="form-control" placeholder="e.g., https://cdn.site.com/logo.png">
+          </div>
+          <div class="form-group">
+            <label for="url-input">Community URL</label>
+            <input type="text" id="url-input" class="form-control" placeholder="e.g., ps.perkspot.com">
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="qr-toggle" checked>
+              <label class="form-check-label" for="qr-toggle">Include QR Code</label>
+            </div>
+            <div id="qr-settings" class="p-1 mt-1 border">
+              <label for="qr-input">QR Code Destination URL</label>
+              <input type="text" id="qr-input" class="form-control" placeholder="e.g., https://example.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="accesscode-toggle" checked>
+              <label class="form-check-label" for="accesscode-toggle">Include Access Code</label>
+            </div>
+            <div id="accesscode-settings" class="p-1 mt-1 border">
+                <label for="passcode-input">Access Code</label>
+                <input type="text" id="passcode-input" class="form-control" placeholder="e.g., 1234567">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="creative-input">Creative Image URL</label>
+            <input type="text" id="creative-input" class="form-control" placeholder="e.g., https://cdn.site.com/flier.png">
+          </div>
+          <button id="apply-changes" class="btn btn-primary btn-block">Apply Changes</button>
+        </div>
+        <div class="section">
+          <h5>Share & Export</h5>
+          <button id="export-btn" class="btn btn-primary btn-block">Export as PDF</button>
+          <button id="copy-link" class="btn btn-secondary btn-block">Copy Share Link</button>
+
+
+          
+        </div>
+        
+        
+        
+        
+    
+    </div>
+
+</div>
+
+  <!-- Full-page loading overlay shown during PDF generation -->
+  <div id="loading-overlay" style="display: none;">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-text">
+      <p class="small">Loading... may take 10-20 seconds</p>
+      <a href="#" class="btn btn-secondary btn-block">Dismiss</a>
+    </div>
+  </div>
+</body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</html>
