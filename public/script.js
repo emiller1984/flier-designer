@@ -89,12 +89,12 @@ $(document).ready(function () {
 
   // Handle "Apply Changes" button
   $('#apply-changes').click(function () {
-    const code = $('#passcode-input').val().trim();
-    const community = $('#community-input').val().trim();
-    let customUrl = $('#url-input').val().trim();
-    const qrUrl = $('#qr-input').val().trim();
+    const code = (($('#passcode-input').val()) || '').toString().trim();
+    const community = (($('#community-input').val()) || '').toString().trim();
+    let customUrl = (($('#url-input').val()) || '').toString().trim();
+    const qrUrl = (($('#qr-input').val()) || '').toString().trim();
     const showQr = $('#qr-toggle').is(':checked');
-    const creativeUrl = $('#creative-input').val().trim();
+    const creativeUrl = (($('#creative-input').val()) || '').toString().trim();
 
     const includeCode = $('#accesscode-toggle').is(':checked');
     if (includeCode && code) {
