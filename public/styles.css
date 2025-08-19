@@ -26,14 +26,14 @@ body {
     margin: 0.25in auto !important;
 }
 
-.container {
+/* .container {
     padding: 0 !important;
     margin: 0 !important;
     min-width: 0 !important;
     max-width: none !important;
     width: 8.5in !important;
     background: #fff !important;  
-}
+} */
 
 .page-container {
     display: flex;
@@ -138,6 +138,71 @@ body {
     margin-top: 0.5rem;
 }
 
+/* Bulk Exporter */
+
+.select-tools {
+    margin-bottom: 1rem;
+}
+
+.checkbox-list {
+   margin-bottom: 2rem;
+    border: 1px solid #ccc;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.checkbox-list .custom-control {
+    padding: 0;
+    margin: 0;
+}
+
+.custom-control-label {
+    padding: 1rem 1rem 1rem 3.5rem;
+    border-bottom: 1px solid #e7e7e7;
+    font-size: 16px;
+    line-height: 20px;
+    display: block;
+}
+
+.custom-control-label::before {
+    width: 1.3rem;
+    height: 1.3rem;
+    left: 1.1rem;
+    top: 1rem;
+}
+.custom-control-label::after {
+    width: 1.3rem;
+    height: 1.3rem;
+    left: 1.1rem;
+    top: 1rem;
+}
+
+.template-options {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+
+}
+
+.template-options .checkbox-list {
+    width: 70%;
+}
+
+.template-options .add-template {
+    width: 30%;
+}
+
+.template-options .add-template label {
+    display: block;
+}
+
+#batch-results {
+    background-color: #fff;
+    padding: 2rem;
+    width: 400px;
+    margin: 2rem auto;
+    box-shadow: 1px 0 100px rgba(0, 0, 0, .3);
+}
 
 @media print {
     
