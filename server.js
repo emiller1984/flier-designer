@@ -3,13 +3,14 @@ const puppeteer = require('puppeteer');
 const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
-const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 3000;
+const LOCAL_APP_ORIGIN = `http://127.0.0.1:${PORT}`;
+const PRIMARY_FLIER_URL = `${LOCAL_APP_ORIGIN}/flier-designer.html`;
 
 // Enable JSON parsing for POST bodies
-app.use(bodyParser.json());
+app.use(express.json());
 
 const upload = multer({
   dest: path.join(__dirname, 'templates'),
@@ -42,9 +43,9 @@ app.get('/generate-pdf', async (req, res) => {
   const qrCode = req.query.qr || '';
   const creativeUrl = req.query.creativeurl || '';
 
-  await page.goto(`http://localhost:${PORT}`, { waitUntil: 'networkidle0' });
+  await page.goto(PRIMARY_FLIER_URL, { waitUntil: 'networkidle0' });
 
-  await page.evaluate((code, community, customUrl, qrCode, creativeUrl) => {
+  await page.evaluate((code, community, customUrl, qrCode, creativeUrl, appOrigin) => {
     const el = document.querySelector('.code');
     if (el) el.textContent = code;
 
@@ -79,13 +80,13 @@ app.get('/generate-pdf', async (req, res) => {
     if (printPage && creativeUrl) {
       let fullUrl = creativeUrl;
       if (creativeUrl.startsWith('/')) {
-        fullUrl = 'http://localhost:3000' + creativeUrl;
+        fullUrl = appOrigin + creativeUrl;
       } else if (!creativeUrl.startsWith('http')) {
         fullUrl = 'https://' + creativeUrl;
       }
       printPage.style.backgroundImage = `url(${fullUrl})`;
     }
-  }, code, community, customUrl, qrCode, creativeUrl);
+  }, code, community, customUrl, qrCode, creativeUrl, LOCAL_APP_ORIGIN);
 
   // Wait for the updated logo to fully load
   await page.waitForFunction(() => {
@@ -244,9 +245,9 @@ app.post('/api/bulk-generate', async (req, res) => {
     for (const template of templates) {
       const page = await browser.newPage();
 
-      await page.goto(`http://localhost:${PORT}`, { waitUntil: 'networkidle0' });
+      await page.goto(PRIMARY_FLIER_URL, { waitUntil: 'networkidle0' });
 
-      await page.evaluate((code, community, customUrl, qrCode, creativeUrl) => {
+      await page.evaluate((code, community, customUrl, qrCode, creativeUrl, appOrigin) => {
         const el = document.querySelector('.code');
         if (el) el.textContent = code;
 
@@ -281,7 +282,7 @@ app.post('/api/bulk-generate', async (req, res) => {
         if (printPage && creativeUrl) {
           let fullUrl = creativeUrl;
           if (creativeUrl.startsWith('/')) {
-            fullUrl = 'http://localhost:3000' + creativeUrl;
+            fullUrl = appOrigin + creativeUrl;
           } else if (!creativeUrl.startsWith('http')) {
             fullUrl = 'https://' + creativeUrl;
           }
@@ -291,7 +292,8 @@ app.post('/api/bulk-generate', async (req, res) => {
          `https://psprods3ep.azureedge.net/cdn.perkspot.com/images/communities/logo_${communityData.id}.png`,
          `${communityData.url_alias}.perkspot.com`,
          `https://api.qrserver.com/v1/create-qr-code/?data=${communityData.url_alias}.perkspot.com&size=200x200`,
-         template);
+         template,
+         LOCAL_APP_ORIGIN);
 
       // Wait for logo to load (timeout 15s, warn if fails)
       try {

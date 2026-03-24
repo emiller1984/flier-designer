@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portable Primary Letter Flier</title>
+  <style>
+    @page {
+      size: 8.5in 11in;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: #e7e7ea;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      color: #ffffff;
+    }
+
+    .page-frame {
+      width: 8.5in;
+      height: 11in;
+      position: relative;
+      overflow: hidden;
+      background-color: #ffffff;
+      background-image: url("https://psprods3EP.azureedge.net/cdn.perkspot.com/prod/images/fliers/static-background-asset-example.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      box-shadow: 0 18px 40px rgba(24, 30, 58, 0.18);
+    }
+
+    .logo {
+      position: absolute;
+      top: 0.35in;
+      left: 0.45in;
+      width: 3in;
+      height: 1in;
+      object-fit: contain;
+      object-position: center left;
+    }
+
+    .bottom-bar {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1.5in;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75in 0.4in;
+      background: #201d52;
+      font-size: 0.23in;
+      line-height: 1.35;
+    }
+
+    .bottom-copy {
+      max-width: 5.75in;
+    }
+
+    .bottom-copy p {
+      margin: 0;
+    }
+
+    .community-url {
+      color: #f56607;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .access-code {
+      margin-top: 0.08in;
+    }
+
+    .qr-shell {
+      width: 1in;
+      height: 1in;
+      padding: 0.12in;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .qr-code {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: #ffffff;
+      }
+
+      .page-frame {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-frame" aria-label="Printable 8.5 by 11 inch flyer">
+    <img
+      class="logo"
+      src="https://psprods3ep.azureedge.net/cdn.perkspot.com/images/communities/logo_346.png"
+      alt="Community logo"
+    >
+
+    <section class="bottom-bar" aria-label="Flyer call to action">
+      <div class="bottom-copy">
+        <p>
+          Visit
+          <a class="community-url" href="http://ps.perkspot.com">ps.perkspot.com</a>
+          to get started today.
+        </p>
+        <p class="access-code">Use Access Code: <strong>1234567</strong></p>
+      </div>
+
+      <div class="qr-shell">
+        <img
+          class="qr-code"
+          src="https://cms.perkspot.com/media/csjjakof/qr-code.png"
+          alt="QR code"
+        >
+      </div>
+    </section>
+  </main>
+</body>
+</html>

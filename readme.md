@@ -1,113 +1,117 @@
-# 🖨️ Flier Designer – PDF Export Tool
+# Flier Designer
 
-This is a prototype web tool that lets users customize a branded flier in the browser and export it as a print-ready 8.5x11" PDF using Puppeteer.
+Flier Designer is a small Node/Express app for previewing and exporting branded 8.5" x 11" flyers as PDFs. It includes a standard flyer editor, an admin version with extra controls, and a bulk export tool that combines community records with background templates to generate ZIPs of PDFs.
 
----
+## What is in this repo
 
-## ✨ Features
+- A static browser UI served by Express
+- Server-side PDF generation powered by Puppeteer
+- CSV-backed community/template data for the bulk export flow
+- A standalone portable HTML version of the primary flyer layout for handoff to other development teams
 
-- **Live Editing:** Users can customize the access code, destination URL, community logo, and QR code
-- **Instant PDF Export:** One-click download of the designed flier with consistent layout and assets
-- **Preview-Friendly:** Changes update in real-time in the browser
-- **Fully Offline-Capable:** Runs locally or deployable to any Node-compatible host
+## Requirements
 
----
+- Node.js 20+ recommended
+- npm
 
-## 📁 File Structure
+The app also depends on remote assets:
 
-```
-flier-designer/
-├── public/              # All static assets
-│   ├── index.html       # Main HTML flier layout
-│   ├── script.js        # jQuery for modal interactions and export logic
-│   └── styles.css       # Styling for screen and print
-├── dist/                # Custom Bootstrap CSS (not included here)
-│   └── css/
-├── server.js            # Node/Express app that serves the site and generates PDFs
-├── generate-pdf.js      # Standalone script to export a PDF from a running instance
-├── Dockerfile           # Used for deployment on platforms like Render
-├── package.json         # Node dependencies and start commands
-└── README.md
-```
+- background/template images hosted on PerkSpot/CDN URLs
+- community logo URLs
+- QR images, including QR code generation via `api.qrserver.com` in some flows
 
----
-
-## 🚀 Getting Started
-
-### 1. Clone and Install
+## Install and run locally
 
 ```bash
-git clone https://github.com/PerkSpot/flier-designer.git
-cd flier-designer
 npm install
+npm start
 ```
 
-### 2. Run Locally
+The app starts on `http://localhost:3000`.
+
+## Browser entry points
+
+After starting the server, the landing page at `http://localhost:3000` links to the main browser surfaces:
+
+- `/flier-designer.html`
+  Standard flyer editor. Lets you set the community URL, toggle QR code/access code, share the configured URL, and export a PDF.
+- `/flier-designer-admin.html`
+  Admin-oriented variant with extra fields for logo and creative background URLs.
+- `/bulk-export.html`
+  Bulk export utility that combines selected communities with selected templates and downloads ZIP files of PDFs.
+
+## Current package scripts
+
+- `npm start`
+  Starts the Express server from [server.js](/Users/evanmillerpersonal/Desktop/repositories/flier-designer/server.js).
+- `npm run export`
+  Runs [generate-pdf.js](/Users/evanmillerpersonal/Desktop/repositories/flier-designer/generate-pdf.js) and saves a local `output.pdf`.
+  This is an optional helper and expects the app server to already be running.
+  Defaults:
+  - flyer URL: `http://127.0.0.1:3000/flier-designer.html`
+  - output path: `output.pdf`
+  Optional overrides:
+  - `FLIER_DESIGNER_URL`
+  - `PDF_OUTPUT_PATH`
+
+## How the app works
+
+### Single-flyer flow
+
+- The printable surface is the `#print-page` element in the designer pages.
+- [public/script.js](/Users/evanmillerpersonal/Desktop/repositories/flier-designer/public/script.js) updates the DOM in the browser and syncs the current state into the page URL.
+- Clicking `Export as PDF` calls `/generate-pdf` with the current flyer values in the query string.
+- [server.js](/Users/evanmillerpersonal/Desktop/repositories/flier-designer/server.js) opens `/flier-designer.html` in Puppeteer, applies the requested values, waits for images to load, hides non-print content, and returns a Letter-sized PDF.
+
+### Bulk export flow
+
+- [public/bulk-export.js](/Users/evanmillerpersonal/Desktop/repositories/flier-designer/public/bulk-export.js) loads communities and template URLs from CSV files.
+- Users pick one or more communities and one or more templates.
+- The browser posts those selections to `/api/bulk-generate`.
+- The server renders one PDF per community/template combination and streams the results back as a ZIP archive.
+
+## Data and template files
+
+- [data/communities.csv](/Users/evanmillerpersonal/Desktop/repositories/flier-designer/data/communities.csv)
+  Community IDs, URL aliases, and access codes used by the bulk exporter.
+- [templates/templates.csv](/Users/evanmillerpersonal/Desktop/repositories/flier-designer/templates/templates.csv)
+  Background/template image URLs shown in the bulk exporter.
+- `templates/`
+  Also stores uploaded template images from the admin/bulk tooling.
+
+## Portable flyer artifact
+
+A standalone copy of the primary flyer layout is included for reuse outside this app:
+
+- [portable/primary-letter-flier/index.html](/Users/evanmillerpersonal/Desktop/repositories/flier-designer/portable/primary-letter-flier/index.html)
+
+Properties of this file:
+
+- no JavaScript
+- no dynamic editor controls
+- inline `<style>` only
+- opens directly from disk with `file://`
+- uses a hardcoded background asset URL
+- preserves the current sample logo, URL text, access code, and QR image from the primary flyer layout
+
+This file is intended as a portable handoff artifact, not as a shared runtime template for the app.
+
+## Docker
+
+A Dockerfile is included for containerized local runs or deployment.
+
+Example:
 
 ```bash
-node server.js
+docker build -t flier-designer .
+docker run --rm -p 3000:3000 flier-designer
 ```
 
-Then visit:
+Then open `http://localhost:3000`.
 
-```
-http://localhost:3000
-```
+## Notes and caveats
 
-### 3. Export a PDF
-
-- Use the on-screen buttons to change access code, URL, logo, or QR code
-- Click **Export as PDF** — a file will download instantly with your design
-
----
-
-## 🔍 How It Works
-
-### `server.js`
-
-- Launches a local Express server on port 3000
-- Serves static files from `/public`
-- Defines `/generate-pdf` route:
-  - Loads the local page using Puppeteer
-  - Injects custom values into the layout (code, logo, URL, QR)
-  - Waits for images to load
-  - Hides everything but `#print-page` before exporting a clean 8.5x11" PDF
-
-### `generate-pdf.js`
-
-- A separate script for exporting a PDF directly (without going through the UI)
-- Loads the page at `localhost:8080`, hides non-flier content, and saves a PDF called `output.pdf`
-- Good for CLI-based testing
-
-### `script.js`
-
-- Handles all browser interactions with jQuery
-- Shows modals when users click buttons to edit the flier
-- Updates the DOM immediately with the entered values
-- Builds a query string and triggers a hidden request to `/generate-pdf` when "Export as PDF" is clicked
-
----
-
-## 🔗 Optional URL Parameters
-
-You can control the background image used on the flier by appending a `creativeurl` query parameter to the page URL.
-
-### Syntax
-
-```
-http://localhost:3000/?creativeurl=cms.perkspot.com/media/drdfccwd/flier-content-2.png
-```
-
-This will set the flier background to:
-
-```
-https://cms.perkspot.com/media/drdfccwd/flier-content-2.png
-```
-
-If no `creativeurl` is provided, the flier defaults to this background image:
-
-```
-https://cms.perkspot.com/media/nnubhrge/flier-content.png
-```
-
-This feature makes it easy to share links that pre-load a specific flier design.
+- The root landing page is only a launcher page. It is not the printable flyer.
+- PDF generation relies on Chromium via Puppeteer and on externally hosted images being reachable.
+- Bulk export can take time for larger selections because every community/template combination is rendered into a separate PDF.
+- Uploaded template URLs are appended to `templates/templates.csv`; there is no deduplication or admin/auth layer in this prototype.
